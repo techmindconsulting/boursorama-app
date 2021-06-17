@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <title>Convertisseur de devises</title>
+    </head>
+    <body>
+        <main class="container">
+            <div class="converter-card">
+                <header>
+                    <h1 class="converter-title">Convertisseur de devises</h1>
+                    <p>
+                        Nous vous mettons à votre disposition un convertisseur de devises, qui vous permet de convertir
+                        5 monnaies instantanément et gratuitement, et de connaître le taux de change en direct.
+                    </p>
+                </header>
+                <hr />
+                <section>
+                    <h2 class="converter-subtitle">Convertisseur de monnaie</h2>
+                    <div class="fields-group">
+                        <input class="input-amount" type="number" id="amount" placeholder="Montant" />
+                        <select class="select-currency" id="select-source-currency">
+                            <option value="">Selection une devise</option>
+                            <option value="eur">Euro - EUR </option>
+                            <option value="dol">Etats-Unis Dollar - USD </option>
+                            <option value="liv">Angleterre Livre sterling - GBP</option>
+                            <option value="yen">Japon Yen - JPY</option>
+                            <option value="cfa">Mali Franc CFA</option>
+                            <option value="chf">Suisse Franc suisse - CHF</option>
+                        </select>
+                        <select class="select-currency" id="select-target-currency">
+                            <option value="">Selection une devise</option>
+                            <option value="eur">Euro - EUR </option>
+                            <option value="dol">Etats-Unis Dollar - USD </option>
+                            <option value="liv">Angleterre Livre sterling - GBP</option>
+                            <option value="yen">Japon Yen - JPY</option>
+                            <option value="cfa">Mali Franc CFA</option>
+                            <option value="chf">Suisse Franc suisse - CHF</option>
+                        </select>
+                        <input type="button" value="Convertir" id="btn-convert" />
+                    </div>
+                </section>
+                <footer>
+                    <div class="alert-info hidden">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Veuillez remplir tous les champs</p>
+                    </div>
+                    <div class="converter-result hidden">
+                        <div class="result-amount" id="result-amount"></div>
+                        <hr>
+                        <div class="rate">
+                            <span id="rate-source"></span>
+                            <span id="rate-target"></span>
+                        </div>
+                        <hr>
+                        <div class="converter-rate">
+                            <p> Taux de change de <span id="converter-rate"></span></p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p>
+                            A noter: les taux de change affichés sont les "taux bancaires". Ces taux de change
+                            peuventfaire l'objet d'une commission
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </main>
+        <script type="module" src="js/main.js"></script>
+    </body>
+</html>
