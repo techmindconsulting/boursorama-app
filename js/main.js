@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
         sourceDatalistCurrency = loadDataListCurrencies(sourceDatalistCurrency, currencies);
         targetDatalistCurrency.innerHTML = sourceDatalistCurrency.innerHTML;
     });
+
+    loadHistoryItems();
 });
 
 function loadDataListCurrencies(dataListElement, currencies) {
@@ -25,6 +27,25 @@ function loadDataListCurrencies(dataListElement, currencies) {
     }
 
     return dataListElement;
+}
+
+function loadHistoryItems()
+{
+    let historyItems =  JSON.parse(localStorage.getItem('historyItems')) ?? null;
+
+    const table = document.getElementById("history-list");
+
+    historyItems.forEach( (historyItem, index) => {
+        let line = table.insertRow(index + 1);
+        let i = 0;
+        for (let property in historyItem) {
+            let cell = line.insertCell(i);
+            let text = document.createTextNode(historyItem[property]);
+            cell.append(text);
+            line.appendChild(cell);
+            i++;
+        }
+    });
 }
 
 function displayErrorMessage() {
