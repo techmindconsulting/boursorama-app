@@ -18,10 +18,6 @@ html {
     color: var(--default);
 }
 
-select {
-    appearance: none;
-}
-
 h1, h2 {
     letter-spacing: 2px;
 }
@@ -64,13 +60,14 @@ div.hidden {
 }
 
 .input-amount, .select-currency {
-    height: 3rem;
+    height: 3.8rem;
     border: 1px solid #c7d2e0;
-    padding: 1rem;
+    padding: .5rem;
     border-radius: 3px;
     outline: none;
     cursor: pointer;
     color: #667e9b;
+    font-size: 1rem;
 }
 
 [type=button] {
@@ -143,6 +140,45 @@ footer {
     color: var(--light-grey);
     background-color: var(--light-grey);
 }
+
+datalist {
+    position: absolute;
+    background-color: white;
+    border: 1px solid blue;
+    border-radius: 0 0 5px 5px;
+    border-top: none;
+    font-family: sans-serif;
+    width: 100%;
+    padding: 5px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    border-collapse:collapse;
+    font-weight: bold;
+}
+
+tr:first-child {
+    background-color: var(--pink);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: var(--light-grey);
+}
+
+tr {
+    height: 50px;
+}
+
+@media screen and (max-width: 580px) {
+
+    html {
+        font-size: 14px;
+    }
+}
+
 
 @media screen and (max-width: 360px) {
 

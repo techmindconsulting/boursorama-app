@@ -29,29 +29,14 @@
                 <section>
                     <h2 class="converter-subtitle">Convertisseur de monnaie</h2>
                     <div class="fields-group">
-                        <input class="input-amount" type="number" id="amount" placeholder="Montant" />
-                        <select class="select-currency" id="select-source-currency">
-                            <option value="">Selection une devise</option>
-                            <option value="eur">Euro - EUR </option>
-                            <option value="dol">Etats-Unis Dollar - USD </option>
-                            <option value="liv">Angleterre Livre sterling - GBP</option>
-                            <option value="yen">Japon Yen - JPY</option>
-                            <option value="cfa">Mali Franc CFA</option>
-                            <option value="chf">Suisse Franc suisse - CHF</option>
-                        </select>
-                        <select class="select-currency" id="select-target-currency">
-                            <option value="">Selection une devise</option>
-                            <option value="eur">Euro - EUR </option>
-                            <option value="dol">Etats-Unis Dollar - USD </option>
-                            <option value="liv">Angleterre Livre sterling - GBP</option>
-                            <option value="yen">Japon Yen - JPY</option>
-                            <option value="cfa">Mali Franc CFA</option>
-                            <option value="chf">Suisse Franc suisse - CHF</option>
-                        </select>
+                        <input class="input-amount" type="number" id="amount" placeholder="Montant"/>
+                        <input class="select-currency" list="select-source-currency" id="source-currency" />
+                        <datalist class="select-currency" id="select-source-currency">
+                        </datalist>
+                        <input class="select-currency" list="select-target-currency" id="target-currency" />                                                                                                                                                                                                   </select>
+                        <datalist class="select-currency" id="select-target-currency"></datalist>
                         <input type="button" value="Convertir" id="btn-convert" />
                     </div>
-                </section>
-                <footer>
                     <div class="alert-info hidden">
                         <i class="fas fa-info-circle"></i>
                         <p>Veuillez remplir tous les champs</p>
@@ -74,9 +59,22 @@
                             peuventfaire l'objet d'une commission
                         </p>
                     </div>
+                </section>
+                <footer>
+                    <div>
+                        <table id="history-list">
+                            <tr>
+                            <th>Montant</th>
+                            <th>Devise source</th>
+                            <th>Devise cible</th>
+                            <th>Résultat</th>
+                            </tr>
+                        </table>
+                    </div>
                 </footer>
+                
             </div>
         </main>
-        <script type="module" src="js/main.js"></script>
+       <script type="module" src="js/main.js"></script>
     </body>
 </html>
