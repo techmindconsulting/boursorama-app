@@ -17,47 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadHistoryItems();
 });
 
-function loadDataListCurrencies(dataListElement, currencies) {
-    for (let currency of currencies) {
-        const option = document.createElement("option");
-        option.value = currency.id;
-        option.text = currency.name;
-        option.dataset.symbol = currency.symbol;
-        dataListElement.appendChild(option);
-    }
-
-    return dataListElement;
-}
-
-function loadHistoryItems()
-{
-    let historyItems =  JSON.parse(localStorage.getItem('historyItems')) ?? null;
-
-    const table = document.getElementById("history-list");
-
-    historyItems.forEach( (historyItem, index) => {
-        let line = table.insertRow(index + 1);
-        let i = 0;
-        for (let property in historyItem) {
-            let cell = line.insertCell(i);
-            let text = document.createTextNode(historyItem[property]);
-            cell.append(text);
-            line.appendChild(cell);
-            i++;
-        }
-    });
-}
-
-function displayErrorMessage() {
-    alertFiedsMissing.classList.remove("hidden");
-    setTimeout(() => {
-        alertFiedsMissing.classList.add("hidden");
-        if (!converterResult.classList.contains("hidden")) {
-            converterResult.classList.add("hidden");
-        }
-    }, 3000);
-}
-
 document.getElementById("btn-convert").addEventListener("click", () => {
     let amount = amountField.value;
     let sourceCurrency = document.getElementById("source-currency").value;
@@ -124,3 +83,44 @@ document.getElementById("btn-convert").addEventListener("click", () => {
         converterResult.classList.remove("hidden");
     }
 });
+
+function loadDataListCurrencies(dataListElement, currencies) {
+    for (let currency of currencies) {
+        const option = document.createElement("option");
+        option.value = currency.id;
+        option.text = currency.name;
+        option.dataset.symbol = currency.symbol;
+        dataListElement.appendChild(option);
+    }
+
+    return dataListElement;
+}
+
+function loadHistoryItems(itemStorage, tableElement)
+{
+    let historyItems =  JSON.parse(localStorage.getItem('historyItems')) ?? null;
+
+    const table = document.getElementById("history-list");
+
+    historyItems.forEach( (historyItem, index) => {
+        let line = table.insertRow(index + 1);
+        let i = 0;
+        for (let property in historyItem) {
+            let cell = line.insertCell(i);
+            let text = document.createTextNode(historyItem[property]);
+            cell.append(text);
+            line.appendChild(cell);
+            i++;
+        }
+    });
+}
+
+function displayErrorMessage() {
+    alertFiedsMissing.classList.remove("hidden");
+    setTimeout(() => {
+        alertFiedsMissing.classList.add("hidden");
+        if (!converterResult.classList.contains("hidden")) {
+            converterResult.classList.add("hidden");
+        }
+    }, 3000);
+}
